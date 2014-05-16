@@ -2,6 +2,8 @@
 #University of California, Irvine
 #http://thomaselliott.me
 
+#use the direct transformation method described in Ragin's Redesigning Social Inquiry
+#to transform continuous variables into fuzzy sets
 fsCalibrate<-function(x,thresholds) {
 	#x = a vector of values to be fuzzified
 	#thresholds = a vector of length 3 containing the threshold values in the following order: (fully out,crossover,fully in)
