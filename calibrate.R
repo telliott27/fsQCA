@@ -10,8 +10,9 @@ fsCalibrate<-function(x,thresholds) {
 	
 	if( length(thresholds) != 3 ) stop("You must provide three threshold values")
 	dev<-x-thresholds[2]
-	us<-3/(thresholds[3]-thresholds[2])
-	ls<--3/(thresholds[1]-thresholds[2])
+	if ( thresholds[1] > thresholds[3] ) dev<-dev*(-1)
+	us<-3/abs(thresholds[3]-thresholds[2])
+	ls<-3/abs(thresholds[1]-thresholds[2])
 	scal<-rep(0,length.out=length(x))
 	scal[which(dev>=0)]<-us
 	scal[which(dev<0)]<-ls
